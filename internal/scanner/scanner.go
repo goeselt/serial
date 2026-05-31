@@ -289,11 +289,6 @@ func shouldIgnoreFile(relPath string) bool {
 		return true
 	}
 
-	baseLower := strings.ToLower(filepath.Base(relPath))
-	if strings.Contains(baseLower, "sample") || strings.Contains(baseLower, "trailer") {
-		return true
-	}
-
 	return false
 }
 

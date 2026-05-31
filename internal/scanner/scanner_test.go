@@ -22,7 +22,6 @@ func TestScanBuildsLibraryAndDetectsDuplicates(t *testing.T) {
 	mustWriteFile(t, filepath.Join(seriesDir, "Show.S01E01E02.mkv"))
 	mustWriteFile(t, filepath.Join(seriesDir, "Specials", "Episode 03.mkv"))
 	mustWriteFile(t, filepath.Join(seriesDir, "Show.S01E03.srt"))
-	mustWriteFile(t, filepath.Join(seriesDir, "Show.S01E04.sample.mkv"))
 
 	res, err := Scan(context.Background(), root)
 	if err != nil {
@@ -277,6 +276,32 @@ func TestNonPortableNameReason(t *testing.T) {
 			got := nonPortableNameReason(tt.input)
 			if (got != "") != tt.wantHit {
 				t.Errorf("nonPortableNameReason(%q) = %q, want hit=%v", tt.input, got, tt.wantHit)
+			}
+		})
+	}
+}
+
+func TestShouldIgnoreFile(t *testing.T) {
+	t.Parallel()
+
+	tests := []struct {
+		name       string
+		path       string
+		wantIgnore bool
+	}{
+		{name: "plain episode", path: "Show.S01E02.mkv", wantIgnore: false},
+		{name: "non-video extension", path: "Show.S01E02.srt", wantIgnore: true},
+		{name: "subtitle extension", path: "Show.S01E02.nfo", wantIgnore: true},
+		{name: "sample tag is not special", path: "Show.S01E02-sample.mkv", wantIgnore: false},
+		{name: "trailer as title word", path: "MySeries - S01E02 - This is not a trailer.mkv", wantIgnore: false},
+	}
+
+	for _, tt := range tests {
+		tt := tt
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+			if got := shouldIgnoreFile(tt.path); got != tt.wantIgnore {
+				t.Errorf("shouldIgnoreFile(%q) = %v, want %v", tt.path, got, tt.wantIgnore)
 			}
 		})
 	}
