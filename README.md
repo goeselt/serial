@@ -130,7 +130,8 @@ Recognized video extensions:
 
 `.mkv` `.mp4` `.avi` `.mov` `.m4v` `.ts` `.wmv` `.webm` `.mpg` `.mpeg` `.m2ts` `.mts` `.vob` `.flv` `.divx`
 
-Files whose names contain `sample` or `trailer` are ignored.
+Any file with one of these extensions is considered, regardless of its name; episode detection is left to the patterns
+below.
 
 Recognized episode-numbering patterns:
 
