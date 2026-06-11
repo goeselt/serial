@@ -153,6 +153,6 @@ match, the leftmost wins.
 - Episode titles are captured verbatim from the text after the episode token and are not cleaned of release metadata.
 - Episode-range support covers `SxxExx` and `NxNN`; date-based and absolute (anime-style) numbering are not parsed.
 
-## License
+## Contributing
 
-[MIT](LICENSE)
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [LICENSE](LICENSE).
