@@ -26,12 +26,12 @@ jobs:
       pull-requests: write
     steps:
       - name: Validate Intent
-        uses: goeselt/intent@d168da88e1330163fb8943b119685d2af453fd8d # v1.0.2
+        uses: goeselt/intent@10ce9d916bb1af60c48ff1bc03a99348aede7f1a # v1.1.4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           fetch-depth: 1
           persist-credentials: false
@@ -48,4 +48,4 @@ jobs:
         run: make build
 
       - name: Pedant
-        uses: goeselt/pedant@af85dee4cca8870ce618955da1a5de22d948d40d # v1.1.1
+        uses: goeselt/pedant@b8e404a982679f74a8cd9309de5d2492bc8030c3 # v1.2.3
