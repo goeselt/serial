@@ -40,7 +40,7 @@ jobs:
 
       - id: intent
         name: Intent Release
-        uses: goeselt/intent@2dd369992f542d83bdc27975b078e1242eb07190 # v1.2.2
+        uses: goeselt/intent@0ab5bbaa2e12d54e405da9e9664ac3328f2c274a # v1.2.3
         with:
           initial-version: '1.0.0'
 
@@ -56,7 +56,7 @@ jobs:
 
       - name: Release
         if: steps.intent.outputs.release-needed == 'true'
-        uses: goeselt/dispatch@177d405019f83bf8728e3a132e2b2565d6eacd47 # v1.3.5
+        uses: goeselt/dispatch@72482f5dee11ae6ad32d44b9d926c6d1708dea98 # v1.3.6
         with:
           release-tag: ${{ steps.intent.outputs.release-tag }}
           assets: |

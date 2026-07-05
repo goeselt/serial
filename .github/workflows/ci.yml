@@ -26,7 +26,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Validate Intent
-        uses: goeselt/intent@2dd369992f542d83bdc27975b078e1242eb07190 # v1.2.2
+        uses: goeselt/intent@0ab5bbaa2e12d54e405da9e9664ac3328f2c274a # v1.2.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -48,4 +48,4 @@ jobs:
         run: make build
 
       - name: Pedant
-        uses: goeselt/pedant@74965deb38735f0b01dcddce2f6e790feabdfcd9 # v1.4.0
+        uses: goeselt/pedant@37e00e1bd7cb6c0ddb5f3765593e344620b0c44b # v1.4.1
