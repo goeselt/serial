@@ -48,4 +48,4 @@ jobs:
         run: make build
 
       - name: Pedant
-        uses: goeselt/pedant@37e00e1bd7cb6c0ddb5f3765593e344620b0c44b # v1.4.1
+        uses: goeselt/pedant@233d1a1f487b5b9dcb01a7790a59bc0f9f15e557 # v1.4.3
