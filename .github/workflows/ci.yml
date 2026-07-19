@@ -26,7 +26,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Validate Intent
-        uses: goeselt/intent@0ab5bbaa2e12d54e405da9e9664ac3328f2c274a # v1.2.3
+        uses: goeselt/intent@4ddbdcaca80e9eec590a81badeb0bc747fd65cbf # v1.3.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -37,7 +37,7 @@ jobs:
           persist-credentials: false
 
       - name: Set Up Go
-        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
         with:
           go-version-file: go.mod
 
@@ -48,4 +48,4 @@ jobs:
         run: make build
 
       - name: Pedant
-        uses: goeselt/pedant@233d1a1f487b5b9dcb01a7790a59bc0f9f15e557 # v1.4.3
+        uses: goeselt/pedant@25db5404475cfce3bd0b1a8153d22c695d03903a # v1.4.4
